@@ -25,4 +25,9 @@ public class Customer {
         System.out.println(this.getId());
         System.out.println(this.getName());
     }
+    public Customer()
+    {
+    	System.out.println("Customer object created" + hashCode());
+    	
+    }
 }

@@ -1,34 +1,26 @@
 package com.chainsys.projectA.startup;
-import com.chainsys.projectA.beans.Customer;
-import com.chainsys.projectA.beans.Employee;
-import org.springframework.context.ApplicationContext; // parent
-import org.springframework.context.support.ClassPathXmlApplicationContext; // child
+
+import com.chainsys.projectA.getbeans.TestClassPathXml;
+
 
 public class Main {
 
 	public static void main(String[] args) {
-		testB();
-         //testA();
+		//TestClassPathXml.testPrototype();
+		TestClassPathXml.testBeanwithConstructor();
 	}
 
-	public static void testA() {
-		Employee emp = new Employee();
-		emp.setId(100);
-		emp.setName("Gopika");
-		emp.print();
-	}
-
-	public static void testB() {
-		ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
-		//Employee emp = ac.getBean(Employee.class);
-		Employee emp=(Employee) ac.getBean("emp");
-		emp.setId(101);
-		emp.setName("Geetha");
-		emp.print();
-		
-		Customer c=ac.getBean(Customer.class);
-		c.setId(111);
-		c.setName("Deepa");
-		c.print();
-	}
 }
+// First JVM gets loaded
+// main method gets executed
+// ApplicationContent Is loaded
+// ApplicationContent reads xml configuration file
+// ApplicationContent pre-loads one object for each bean in the config file if the bean is not marked as lazy-init="true"
+// Lazy-init="true" this informs springContainer not to pre-loaded ogbject for this bean
+// By default springs early loads object in memory.
+// For lazy-init beans objects is created only when the getBean() method is called
+// For pre-init beans  getBean() returns the reference of the pre-loaded objects.
+// By default only one object for every bean is created(singleton)
+// singleton: Atleast one object for every class but not more than one object
+// Spring for lazy-init beans creates a singleton objects the first call of getBeans() method and then
+// users that objects for future getBean()  method calls.
