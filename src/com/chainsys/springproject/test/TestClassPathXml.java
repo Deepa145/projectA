@@ -140,15 +140,17 @@ public class TestClassPathXml {
 	}
 
 	public static void testAutoWire() {
-		ConfigurableApplicationContext ac1 = new ClassPathXmlApplicationContext("Autowire.xml");
-		Car car = ac1.getBean(Car.class);
-		car.move();
-		car = null;
-		ac1.close();
-	}
+        ConfigurableApplicationContext ac1 = new ClassPathXmlApplicationContext("Autowire.xml");
+        Car car= ac1.getBean("car",Car.class);
+        car.starts();
+        car.move();
+        car = null;
+        ac1.close();
+    }
 
 	public static void testAutoWireQualifier() {
 		ConfigurableApplicationContext ac1 = new ClassPathXmlApplicationContext("Autowire.xml");
 		CarServices cs = ac1.getBean(CarServices.class);
+		cs.startTrip();
 	}
 }

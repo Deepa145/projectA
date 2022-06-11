@@ -22,8 +22,9 @@ public class Main {
 //		TestClassPathXml.testLifeCycle();
 		// TestClassPathXml.testInitDestoryBean();
 		// TestClassPathXml.testAnnotationLc();
-//		TestClassPathXml.testAutoWire();
-		TestClassPathXml.testAutoWireQualifier();
+//TestClassPathXml.testAutoWire();
+		 TestClassPathXml.testAutoWireQualifier();
+		//TestAnnotatonConfig.testPhone();
 	}
 
 }

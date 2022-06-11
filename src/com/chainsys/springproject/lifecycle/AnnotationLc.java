@@ -9,7 +9,7 @@ public class AnnotationLc {
 	}
 	@PostConstruct
 	public void start() {
-		System.out.println("Strat AnnotationLc...");
+		System.out.println("Start AnnotationLc...");
 	}
 	@PreDestroy
 	public void stop() {
